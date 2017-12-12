@@ -109,7 +109,7 @@ namespace GalaxyExplorer
         System.Runtime.GCSettings.LatencyMode = System.Runtime.GCLatencyMode.LowLatency;
 #endif
 
-            TransitionManager.Instance.PreLoadScene("SolarSystemView");
+            TransitionManager.Instance.PreLoadScene("SunEarthView");
 
             while (TransitionManager.Instance.InTransition)
             {

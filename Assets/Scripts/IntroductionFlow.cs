@@ -220,7 +220,7 @@ namespace GalaxyExplorer
                     if (timeInState > SecondsOnEarth)
                     {
                         VOManager.Instance.PlayClip(SolarSystem);
-                        TransitionManager.Instance.LoadPrevScene("SolarSystemView");
+                        TransitionManager.Instance.LoadPrevScene("SunEarthView");
                         AdvanceIntroduction();
                     }
 
