@@ -15,6 +15,7 @@ namespace GalaxyExplorer
         public float DialogExitTime = 2.0f;
         [Tooltip("Causes the flow to skip placing the earth. This is set to true in Awake if the experience is not holographic.")]
         public bool SkipPlaceEarth = false;
+        public bool SkipGalaxyIntroduction = true;
         public float SecondsToFadeOutEarth;
         public float SecondsOnEarth;
         public float SecondsOnSolarSystem;
@@ -229,16 +230,26 @@ namespace GalaxyExplorer
                     if (timeInState > SecondsOnSolarSystem)
                     {
                         TransitionManager.Instance.IsIntro = false;
-                        TransitionManager.Instance.LoadPrevScene("GalaxyView");
+                        if (!SkipGalaxyIntroduction)
+                        {
+                            TransitionManager.Instance.LoadPrevScene("GalaxyView");
+                        }
                         AdvanceIntroduction();
                     }
 
                     break;
 
                 case IntroductionState.IntroductionGalaxy:
-                    if (timeInState > SecondsOnGalaxy)
+                    if (SkipGalaxyIntroduction)
                     {
                         AdvanceIntroduction();
+                    }
+                    else
+                    {
+                        if (timeInState > SecondsOnGalaxy)
+                        {
+                            AdvanceIntroduction();
+                        }
                     }
 
                     break;
@@ -345,6 +356,10 @@ namespace GalaxyExplorer
                 if (currentState == IntroductionState.IntroductionStateComplete)
                 {
                     TransitionManager.Instance.ShowToolsAndCursor();
+                    if (SkipGalaxyIntroduction)
+                    {
+                        ToolManager.Instance.gameObject.SetActive(true);
+                    }
                     enabled = false;
                     return;
                 }
