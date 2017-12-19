@@ -14,7 +14,8 @@ namespace GalaxyExplorer
         Back,
         Hide,
         Show,
-        About
+        About,
+        Pause
     }
 
     public class Button : GazeSelectionTarget, IFadeTarget
@@ -240,6 +241,9 @@ namespace GalaxyExplorer
                 case ButtonType.Show:
                 case ButtonType.Hide:
                     ToolManager.Instance.ToggleTools();
+                    break;
+                case ButtonType.Pause:
+                    Time.timeScale = Time.timeScale > 0 ? 0 : 1.0f;
                     break;
             }
         }

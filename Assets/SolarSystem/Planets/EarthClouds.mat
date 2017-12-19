@@ -133,5 +133,5 @@ Material:
     - _LightmapParams: {r: 1, g: 0, b: 0, a: 0}
     - _NormalScale: {r: 1, g: 1, b: 1, a: 0}
     - _SpecPower: {r: 60, g: 0, b: 1, a: 0}
-    - _SunDirection: {r: 0, g: 0, b: 0, a: 0}
+    - _SunDirection: {r: -0.62469506, g: 0.62469506, b: -0.46852127, a: 0}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}

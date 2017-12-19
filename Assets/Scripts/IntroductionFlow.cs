@@ -358,7 +358,7 @@ namespace GalaxyExplorer
                     TransitionManager.Instance.ShowToolsAndCursor();
                     if (SkipGalaxyIntroduction)
                     {
-                        ToolManager.Instance.gameObject.SetActive(true);
+                        ToolManager.Instance.ShowTools();
                     }
                     enabled = false;
                     return;
